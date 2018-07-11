@@ -1,2 +1,3 @@
-# oimb
-Slides for talk at the Oregon Institute of Marine Biology
+# Presentation at Oregon Institute of Marine Biology
+
+View the slides [here](https://rawgit.com/grantmcdermott/oimb/master/hydro-x.html).
