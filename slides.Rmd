@@ -1,0 +1,440 @@
+---
+title: "Using big data to better understand global fisheries"
+subtitle: "Grant R. McDermott | University of Oregon"
+# author: "Grant R. McDermott | University of Oregon"
+#date: "2017/05/30"
+output:
+  xaringan::moon_reader:
+    css: ["css/my-css.css", "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"] 
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r global_options, include=FALSE, cache=FALSE}
+library(knitr)
+opts_chunk$set(
+  fig.align="center", fig.width=8, fig.height=6, #fig.path='pics/',
+  cache=T,
+  echo=F, warning=F, message=F
+  )
+```
+
+## About me
+
+- Assistant Prof. at UO's Dept. of Economics (2017--).
+  - Before that: UCSB, Norway, South Africa...
+- Environmental economist interested in data science, spatial analysis, and interdisciplinary research among other things.
+- Accidental academic. 
+
+<i class="fa fa-envelope-square"></i> <a href="mailto:grantmcd@uoregon.edu" target="_blank">grantmcd@uoregon</a></br>
+<i class="fa fa-twitter"></i> <a href="https://twitter.com/grant_mcdermott" target="_blank">@grant_mcdermott</a></br>
+<i class="fa fa-globe"></i> <a href="http://www.grantmcdermott.com" target="_blank">www.grantmcdermott.com</a></br>
+<i class="fa fa-github"></i> <a href="https://github.com/grantmcdermott" target="_blank">github.com/grantmcdermott</a></br>
+
+---
+
+## Goals for today
+
+1. Tell you about my fisheries-based research.
+
+2. Tell you about some of the big data products that I use (and are available to you too).
+
+3. Get feedback and talk about possible collaborations.
+
+---
+class: inverse, center, middle
+
+# "Protecting marine mammals, turtles and birds by rebuilding global fisheries" 
+
+## [Burgess, McDermott *et al*. (2018, *Science*)](http://dx.doi.org/10.1126/science.aao4248)
+
+---
+
+## Fisheries bycatch as a dual conservation problem
+
+- Problem 1: Many of the world's fisheries over overfished.
+
+- Problem 2: Many marine species are threatened as fisheries bycatch (turtles, dolphins, etc.)
+
+--
+
+**Research question:** Can we solve Problem 1 by addressing Problem 2?
+
+--
+
+**Answer:** Yes! We consistently find that $\pm$ 50% of the threatened bycatch species in our analysis recover as a collateral benefit of improved fisheries management.
+
+---
+
+## Analysis logic (e.g. NW loggerhead turtle)
+
+<center>
+<img src="pics/bycatch-fig-2.png" height="500px"/>
+</center>
+
+---
+
+## Quantifying trade-offs
+
+<center>
+<img src="pics/bycatch-fig-3-mey.png" height="500px"/>
+</center>
+
+---
+
+## Quantifying trade-offs (summary)
+
+![Fig 4.](pics/bycatch-fig-4.png)
+
+
+---
+
+## Summary
+
+- Reforming global fisheries (to maximise profit!) goes a *long* way towards enabling recovery of threatened bycatch species; if not achieving it outright.
+  - Results are surprisingly robust despite the many uncertainties involved. 
+
+- At its heart, a classic environmental economics question about externalities.
+
+- Paper builds on several other high-profile studies aimed at providing a clearer picture of global fisheries (e.g. [Costello *et al.*, *Science* 2012](http://science.sciencemag.org/content/early/2012/09/26/science.1223389) ; [Costello *et al.*, *PNAS* 2016](http://www.pnas.org/content/113/18/5125)).
+
+- Code and data: https://github.com/grantmcdermott/bycatch.
+
+---
+class: inverse, center, middle
+
+# "The Blue Paradox: Preemptive Overfishing in Marine Reserves"
+
+## [McDermott, Meng, *et al.* (2018, R&R at *PNAS*)]()
+
+---
+
+## A marine reserve in real time
+
+<video width="480" height="360" controls>
+  <source src="pics/pipa-zoom.mp4" type="video/mp4">
+</video>
+
+.footnote[
+<a href="http://globalfishingwatch.org/map/?redirect_login=true" target="_blank">Live session</a> 
+]
+
+---
+
+## Motivation
+
+- People are very adept at anticipating policy changes.
+
+- Preemptive responses can undermine desired policy goals.
+
+- Well documented in other fields; gun control, Endangered Species Act, “green paradox”, etc.
+
+- However, unknown whether same holds for large-scale marine conservation policies (data limitations a key reason).
+
+--
+
+**Research questions:**
+1. Do fishers preemptively increase effort in anticipation of an impending marine reserve (i.e. a "blue paradox")? 
+2. If yes, what are the consequences for science and policy?
+
+???
+
+- Blue paradox idea draws inspiration from the Green Paradox ([Sinn, 2012](https://mitpress.mit.edu/books/green-paradox)) and related literature on preemptive habitat destruction under the E.S.A. ([Lueck and Michaels, 2003](http://www.masonlec.org/site/rte_uploads/files/Manne/2014.12.06/LueckMicheal_Class%208.pdf))
+
+---
+
+## Growing importance of "mega" MPAs
+
+![](pics/mpas-culm.png)
+
+---
+
+## Paper parks?
+
+- Despite exponential growth in MPA coverage, conservation efficacy remains in question ([Edgar *at al*., 2014](http://www.nature.com/nature/journal/v506/n7487/full/nature13022.html); [Halpern, 2014](http://www.nature.com/nature/journal/v506/n7487/full/nature13053.html)).
+
+- Numerous theories put forward (reserves too small, lack of budget for enforcement, etc.)
+
+- Our suggestion: What about the behavioural / anticipatory response of fishermen?
+  - A BP would also have important implications for the way we measure conservation efficacy in the first place. (More on this later.)
+
+- But where to get data?..
+
+--
+  - Enter Global Fishing Watch.
+
+???
+
+- Edgar et al.'s five features: No take, well enforced, old (>10 years), large (>100km2), and isolated by deep water or sand.
+
+---
+
+## Global Fishing Watch
+
+- GFW is a joint initiative between Google, SkyTruth and Oceana.
+
+- Offers unprecented insight into *global* fishing activity.
+  - Includes locations that were previously inaccesible to outside observers.
+  
+- Public dataset made available with the publication of [Kroodsma et al. (2018, *Science*)](http://science.sciencemag.org/content/359/6378/904): "Tracking the footprint of global fisheries".
+  - GFW have made their data available in various forms ([GFW interactive map](http://globalfishingwatch.org/map/), [Google Earth Engine](http://globalfishingwatch.org/data-blog/our-data-in-earth-engine/), [Google BigQuery](http://jsmayorga.com/post/getting-global-fishing-watch-from-google-bigquery-using-r/)).
+
+---
+
+## Where does GFW get its data?
+
+- Ships use AIS (Automatic Identification System) for maritime safety; broadcast location to navigate and avoid collisions.
+  - Includes info on vessel ID, flag, speed, tonnage, etc. 
+  - Problems: "Spoofing". Fields incorrectly entered by owner. Raw data contains many mistakes.
+
+- Satellite and terrestrial systems can receive and record AIS messages too.
+
+- AIS is BIG data... 
+  - 22 billion messages from 250k industrial fishing vessels over 2012-2016.
+  - 20 million messages being added *per day* (and growing).
+
+???
+
+- AIS is required on all vessels >300 tons on international voyages. Many countries require smaller vessels to use AIS within their EEZs as well. 
+- A moving vessel broadcasts a position message every 2 to 20 seconds 
+- An anchored vessel every 3 to 6 minutes.
+- GFW average is 50 satellite positions per vessel per day.
+
+---
+
+## Density of AIS
+
+![](pics/ais-density.png)
+
+
+---
+
+## Processing and classfying the GFW data
+
+- Short version:<sup>[1]</sup> Cloud computing and machine learning (convolutional neural network).
+  1. Probability that a vessel *is* fishing, $P \in [0,1]$.
+  2. What *type* of fishing is most likely (trawl, long line, purse sein, etc.)
+
+- Training data: 240k hours' worth of AIS data from 624 vessels (569k AIS positions) that have been hand-labelled by fisheries experts and/or validated with logbook data.
+
+.footnote[
+[1] <a href="https://www.youtube.com/embed/uaehB3PJfr0" target="_blank">Lucius Fox</a>: "I just wanted you to know how hard it was." 
+]
+  
+???
+
+- There are actually two CNNs:
+  1. One to identify vessel characteristics, including length, engine power, and vessel type. (Training data: 73,994 vessels matched to official fleet registries, including about 13,500 fishing vessels.) 
+  2. A second to detect which AIS positions were indicative of fishing activity. (Training data: 240,000 hours’ worth of AIS data, from 624 vessels, with over 569,000 AIS positions labelled by fisheries experts.)
+
+
+---
+
+## Processing and classfying the GFW data
+
+![](pics/gfw-train.gif)
+
+---
+
+## GFW dataset
+
+- The cleaned GFW dataset contains 70k likely fishing vessels.
+  - AIS-equipped vessels account for 75% of offshore fisheries (>100 nm from land).
+
+- Individual vessel tracts.
+  - Where, when and for how long a vessel was fishing.
+  - What type of fishing were they doing.
+
+- Other covariates of interest: Flag, tonnage, length, speed, etc.
+
+???
+
+- Small fraction of the world's ~2.5 million motorized fishing vessels... but it contains a majority of active vessels over 24 metres.
+
+---
+
+## Back to the Blue Paradox
+
+- Focus on the Phoenix Island Protected Area (PIPA).
+  - Part of the Pacific island nation of Kiribati's exclusive economic zone (EEZ).
+  - One of the world's largest and most celebrated marine reserves.
+
+- Identification: Spatial "difference-in-differences".
+  - Compare fishing effort per km in neighbouring areas of the Kiribati EEZ: PIPA (treatment) vs non-PIPA (control).
+
+- NB: Fishers have no incentive to lie about their position pre-enforcement.
+
+---
+
+## PIPA as a case study
+
+![](pics/kiribati_eez_map.png)
+
+---
+
+## Main result (1)
+
+</br>
+</br>
+![](pics/pipa-wide-control.png)
+
+---
+
+## Main result (2)
+
+</br>
+</br>
+![](pics/pipa-wide.png)
+
+---
+
+## Main result (3)
+
+</br>
+</br>
+![](pics/pipa-wide-diff.png)
+
+---
+
+## Extrapolating globally
+
+<center>
+<img src="pics/global_significance_colorblind.png" height="500px"/>
+</center>
+
+
+---
+
+## Conservation and science implications
+
+BP has implications for both the conservation efficacy of marine reserves and the methods that scientists use to measure this efficacy. 
+
+1. **Conservation efficacy**
+  - Impoverished starting point for the affected reserves. 
+  - Possible L-T declines (e.g. fish stocks pushed below min. population thresholds). 
+
+2. **Scientific measurement** 
+  - Simple comparison of fish abundance (e.g. before vs after) will be biased due to preemptive response.
+  - Maybe we're measuring the wrong things?
+
+---
+
+## Summary
+
+- Anticipation of PIPA causes fishing effort to more than double (↑ 130%).
+  - Equivalent to 1.5 years of banned fishing.
+
+- Extrapolating globally: Temporary ↑ in over-extracted fisheries from 65% to 72%.
+
+- Reasons to view our empirical results as a lower bound.
+  - E.g. Doesn’t account for long-term effects (population thresholds and other tipping points).
+
+- BP offers a previously unexplored reason for prevalence of “paper parks”... And also has implications for ways that scientists measure their conservation efficacy.
+
+???
+
+Future research: Disentangling the exact mechanisms vis-a-vis property rights. Deeper dive into potential long-term ramifications.
+
+---
+
+## Other, ongoing GFW projects
+
+- There are numerous other, ongoing GFW projects that I'd be happy to talk about afterwards.
+
+  - Connecting overfishing and human-rights abuses on the high seas. (With Chris Costello and colleagues from UCSB and GFW.)
+  - Trying to back out real-time stock assessments from GFW effort data. (Dan Ovando.)
+  - Etc...
+
+
+---
+
+class: inverse, center, middle
+
+# Aquaculture mapping
+
+## W.I.P. with various coauthors
+
+---
+
+## Aquaculture poised to overtake capture fisheries
+
+![](pics/fao-aqua.jpg)
+
+Source: 
+<a href="http://www.fao.org/3/I9540EN/i9540en.pdf" target="_blank">FAO (2018)</a>.
+
+---
+
+## Many unknowns
+
+- Despite this incredible aggregate growth, many unknowns about aquaculture (mariculture) remain.
+
+- We don't even have a good sense of the true spatial footprint; how and where it is growing fastest.
+
+- Nor, do we know much about how aquaculture and capture fisheries are interacting.
+  - Complements? Competitors? Conservation tool? Habitat threat?
+
+--
+
+- **Idea:** Use high-resolution remote sensing (satellite) imagery and machine learning to map aquaculture at scale.
+
+---
+
+## Aside: Planetary-scale analysis w/ Google Earth Engine
+
+- Google has done the hard work of ingesting (much of) the world's public satellite and remote sensing data.
+  - Landsat, Sentinel, MODIS, NOAA/NCEP/NCAR, etc.
+
+- Paired with vast, colocated computational power.
+  - "Bring your code to the data."
+
+- Seemlessly interacts with many other products within the Google ecosystem.
+  - GoogleDrive, Cloud storage, TensorFlow ML library, etc.
+
+--
+
+- I highly recommend applying for the annual GEE User Summit next year.
+
+???
+
+- 200 datasets, 5 million images (4k being added every day), 5 petabytes of data... 
+- Automatic version control plus shareable scripts make for good research practice and reproducible science.
+
+---
+
+## GEE + ML aquaculture mapping example
+
+- <a href="https://code.earthengine.google.com/83611acb2adbeed5fa0ac66a352a320a" target="_blank">Live session</a>.
+
+???
+
+- FWIW, here's a GEE script for the <a href="https://code.earthengine.google.com/21c101d3d1aa7a5ac083c9bd6cd19f8c" target="_blank">Blue Paradox</a> using GFW data.
+
+---
+
+## Summary
+
+- Early results suggest that this approach is very promising.
+
+- However, difficulties in scaling-up:
+  - ML classification algorithms sensitive to even relatively small regional differences (ocean colour, aquaculture types, etc.)
+  - Training the machine requires a *lot* of data (millions of data points).
+
+- Near-term goal is to focus on a specific region, do that well, and possibly pair with GFW data to analyse interaction with capture fisheries.
+
+---
+class: inverse, center
+
+</br></br></br></br></br></br>
+
+## Thank you!
+
+### Questions?
+
